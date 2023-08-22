@@ -1,0 +1,19 @@
+package com.example.orderService;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+import com.example.config.OrderServiceRabbitMQConfig;
+import com.example.model.CustomerRequest;
+
+@Component
+public class orderServiceConsumer {
+
+	@RabbitListener(queues=OrderServiceRabbitMQConfig.queueName)
+	public void consumerCustomerServiceQueue(CustomerRequest customerRequest) {
+		System.out.println("----------------------------");
+		System.out.println(customerRequest.getCustomerName());
+		System.out.println(customerRequest.getCustomerCity());
+		System.out.println(customerRequest.getCustomerMobile());
+	}
+}

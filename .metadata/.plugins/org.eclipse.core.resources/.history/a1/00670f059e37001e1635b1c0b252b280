@@ -1,0 +1,15 @@
+package com.example.orderService;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+import com.example.model.CustomerRequest;
+
+@Component
+public class orderServiceConsumer {
+
+	@RabbitListener(queues="")
+	public void consumerCustomerServiceQueue(CustomerRequest customerRequest) {
+		
+	}
+}
